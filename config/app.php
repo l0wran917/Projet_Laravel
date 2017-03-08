@@ -177,6 +177,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        /*
+         * Add manually Service Providers...
+         */
+         Reliese\Coders\CodersServiceProvider::class,
     ],
 
     /*
