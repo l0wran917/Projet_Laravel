@@ -1,0 +1,36 @@
+.user-block{
+    background-color: #90a4ae;
+    padding-bottom: 24px;
+}
+
+label{
+    color: #fff !important;
+}
+
+textarea{
+    border-color: #fff !important;
+}
+
+.margin-top{
+    margin-top: 12px;
+}
+
+.margin-top-large{
+    margin-top: 24px;
+}
+
+.background-green{
+    background-color: #26a69a;
+}
+
+.background-pink{
+    background-color: #ee6e73;
+}
+
+.fake-height{
+    height: 300px;
+}
+
+img{
+    max-width: 100%;
+}
