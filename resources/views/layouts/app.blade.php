@@ -45,7 +45,18 @@
                             <div class="card-image">
                                 <img src="http://materializecss.com/images/yuna.jpg">
                                 <span class="card-title">Card Title</span>
-                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                                
+                                @if($isFollowed)
+                                    <a class="btn-floating halfway-fab waves-effect waves-light green"
+                                       href="{{ route('unfollow', ['username' => Route::input('username')]) }}">
+                                        <i class="material-icons">add</i>
+                                    </a>
+                                @else
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red"
+                                       href="{{ route('follow', ['username' => Route::input('username')]) }}">
+                                        <i class="material-icons">add</i>
+                                    </a>
+                                @endif
                             </div>
                             <div class="card-content">
                                 <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>

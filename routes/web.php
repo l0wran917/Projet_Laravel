@@ -20,8 +20,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home', 'HomeController@newPost')->name('new_post');
 
-Route::get('/user/{username}', 'UserController@index')->name('user');
+Route::get('user/{username}', 'UserController@index')->name('user');
+Route::get('user/{username}/follow', 'UserController@follow')->name('follow');
+Route::get('user/{username}/unfollow', 'UserController@unfollow')->name('unfollow');
 
 Route::get('/news', 'NewsController@index');
 
 Route::get('search', 'SearchController@index')->name('search');
+

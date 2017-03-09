@@ -1,55 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="card white">
-        <div class="card-content">
-            <form>
-                <div class="row">
-                    <div class="input-field col l11">
-                        <textarea id="textarea1" class="materialize-textarea" data-length="141"></textarea>
-                        <label for="textarea1">Textarea</label>
-                    </div>
-                    <button class="btn col l1 waves-effect waves-light">
-                        <i class="material-icons">send</i>
-                    </button>
-                </div>
-            </form>
+    @foreach($posts as $post)
+        <div class="card white hoverable">
+            <div class="card-content">
+                <a href="user/pseudo"><span class="card-title">{{ ucfirst($user->pseudo) }}</span></a>
+                <em>Posté le {{ $post->created_at->format('d/m/Y') }} à {{ $post->created_at->format('H:i') }}</em>
+                <p>{{ $post->content }}</p>
+            </div>
+            <div class="card-action">
+                <a href="#"><i class="material-icons grey-text">favorite_border</i></a>
+                <a href="#"><i class="material-icons grey-text">comment</i></a>
+                <a href="#"><i class="material-icons grey-text">share</i></a>
+            </div>
         </div>
-    </div>
-    <div class="card white hoverable">
-        <div class="card-content">
-            <a href="user/pseudo"><span class="card-title">Pseudo</span></a>
-            <em>Posté le 13/13/2013 à 13h13</em>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, assumenda at illo, illum inventore laboriosam maxime quam quas inventore labor.</p>
-        </div>
-        <div class="card-action">
-            <a href="#"><i class="material-icons grey-text">favorite_border</i></a>
-            <a href="#"><i class="material-icons grey-text">comment</i></a>
-            <a href="#"><i class="material-icons grey-text">share</i></a>
-        </div>
-    </div>
-    <div class="card white hoverable">
-        <div class="card-content">
-            <a href="user/pseudo"><span class="card-title">Pseudo</span></a>
-            <em>Posté le 13/13/2013 à 13h13</em>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, assumenda at illo, illum inventore laboriosam maxime quam quas inventore labor.</p>
-        </div>
-        <div class="card-action">
-            <a href="#"><i class="material-icons grey-text">favorite_border</i></a>
-            <a href="#"><i class="material-icons grey-text">comment</i></a>
-            <a href="#"><i class="material-icons grey-text">share</i></a>
-        </div>
-    </div>
-    <div class="card white hoverable">
-        <div class="card-content">
-            <a href="user/pseudo"><span class="card-title">Pseudo</span></a>
-            <em>Posté le 13/13/2013 à 13h13</em>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, assumenda at illo, illum inventore laboriosam maxime quam quas inventore labor.</p>
-        </div>
-        <div class="card-action">
-            <a href="#"><i class="material-icons grey-text">favorite_border</i></a>
-            <a href="#"><i class="material-icons grey-text">comment</i></a>
-            <a href="#"><i class="material-icons grey-text">share</i></a>
-        </div>
-    </div>
+    @endforeach
 @endsection
+ 

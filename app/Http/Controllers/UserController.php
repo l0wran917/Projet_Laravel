@@ -2,15 +2,70 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Follow;
 use App\User;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
-	public function index($username){
+    public function index($username)
+    {
 
-		$user = User::where(User::USERNAME_FIELD, $username)->first();
+        $user = User::where(User::USERNAME_FIELD, $username)->first();
 
-		return view('user', ['user' => $user]);
-	}
+        $posts = $user->posts;
+
+        return view('user', [
+            'user' => $user,
+            'isFollowed' => $this->isFollowed($username),
+            'posts' => $posts
+        ]);
+    }
+
+    public function follow($username)
+    {
+        $user = User::where(User::USERNAME_FIELD, $username)->first();
+
+        if (empty($user)) {
+            Session::flash('error', true);
+            return back();
+        }
+
+        $follow = new Follow();
+        $follow->id_follower = Auth::id();
+        $follow->id_followed = $user->id;
+        $follow->save();
+
+        Session::flash('success', true);
+        return back();
+    }
+
+    public function unfollow($username)
+    {
+        $user = User::where(User::USERNAME_FIELD, $username)->first();
+        if (empty($user)) {
+            Session::flash('error', true);
+            return back();
+        }
+
+        $follow = Follow::where('id_follower', Auth::id())->where('id_followed', $user->id)->first();
+        Follow::destroy($follow->id);
+
+        Session::flash('success', true);
+        return back();
+    }
+
+    public function isFollowed($username)
+    {
+        $user = User::where(User::USERNAME_FIELD, $username)->first();
+        if (empty($user)) {
+            Session::flash('error', true);
+            return back();
+        }
+
+        $follow = Follow::where('id_follower', Auth::id())->where('id_followed', $user->id)->get();
+
+        return count($follow) > 0;
+    }
 }
