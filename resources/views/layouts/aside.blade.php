@@ -69,38 +69,8 @@
 
     <div id="wawaters" class="modal bottom-sheet">
         <div class="modal-content">
-            <div class="card-title"></div>
+            <h4>Wawaters</h4>
             <div class="row">
-                <div class="col l1">
-                    <div class="card">
-                        <div class="card-image">
-                            <a href="user/pseudo">
-                                <img src="http://materializecss.com/images/yuna.jpg">
-                                <span class="card-title">Pseudo</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col l1">
-                    <div class="card">
-                        <div class="card-image">
-                            <a href="user/pseudo">
-                                <img src="http://materializecss.com/images/yuna.jpg">
-                                <span class="card-title">Pseudo</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col l1">
-                    <div class="card">
-                        <div class="card-image">
-                            <a href="user/pseudo">
-                                <img src="http://materializecss.com/images/yuna.jpg">
-                                <span class="card-title">Pseudo</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
                 <div class="col l1">
                     <div class="card">
                         <div class="card-image">
@@ -115,6 +85,23 @@
         </div>
     </div>
 
+    <div id="wawated" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Wawated</h4>
+            <div class="row">
+                <div class="col l1">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="user/pseudo">
+                                <img src="http://materializecss.com/images/yuna.jpg">
+                                <span class="card-title">Pseudo</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
