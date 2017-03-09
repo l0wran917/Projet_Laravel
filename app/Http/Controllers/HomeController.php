@@ -24,7 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $posts = $this->getFollowedPosts();
+
+        return view('home', [
+            'user' => Auth::user(),
+            'posts' => $posts
+        ]);
     }
 
     public function newPost(Request $request) {
@@ -38,5 +43,20 @@ class HomeController extends Controller
         $post->save();
 
         return redirect('home');
+    }
+
+    public function getFollowedPosts(){
+        $posts = [];
+
+        $followedUsers = Auth::user()->followed;
+        $followedIds = [];
+        foreach ($followedUsers as $user){
+            $followedIds[] = $user->id_followed;
+        }
+        $followedIds[] = Auth::id();
+
+        $posts = Post::whereIn('id_user', $followedIds)->orderBy('created_at', 'desc')->get();
+
+        return $posts;
     }
 }
