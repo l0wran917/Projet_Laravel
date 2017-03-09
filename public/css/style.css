@@ -42,3 +42,7 @@ form div.row button {
 em {
     text-decoration: underline;
 }
+
+.card-image .card-title {
+    background-color: grey;
+}
