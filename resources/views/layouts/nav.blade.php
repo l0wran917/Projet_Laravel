@@ -4,7 +4,15 @@
             @if(!Auth::id())
                 <li><a href="{{url('login')}}"><i class="material-icons">lock_open</i></a></li>
             @else
-                <li><a href="{{url('logout')}}"><i class="material-icons">lock</i></a></li>
+                <a href="{{ route('logout') }}"
+                   onclick="
+                    event.preventDefault();
+                    document.getElementById('logout-form').submit();"> <i class="material-icons">lock</i>
+                </a>
+        
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
                 <li><a href="{{url('user/pseudo')}}"><i class="material-icons">settings</i></a></li>
             @endif
         </ul>
