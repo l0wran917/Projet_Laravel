@@ -15,11 +15,15 @@ class UserController extends Controller
         $user = User::where(User::USERNAME_FIELD, $username)->first();
 
         $posts = $user->posts;
+        $likes = Auth::user()->likes;
+
+        $likes = $this->formatLikes($likes);
 
         return view('user', [
             'user' => $user,
             'isFollowed' => $this->isFollowed($username),
-            'posts' => $posts
+            'posts' => $posts,
+            'likes' => $likes
         ]);
     }
 
@@ -67,5 +71,18 @@ class UserController extends Controller
         $follow = Follow::where('id_follower', Auth::id())->where('id_followed', $user->id)->get();
 
         return count($follow) > 0;
+    }
+
+    private function formatLikes($likes){
+
+        $likesFormatted = [];
+
+        foreach ($likes->toArray() as $like){
+            $idPost = $like['id_post'];
+
+            $likesFormatted[$idPost] = true;
+        }
+
+        return $likesFormatted;
     }
 }

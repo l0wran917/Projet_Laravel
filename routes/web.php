@@ -24,6 +24,8 @@ Route::get('user/{username}', 'UserController@index')->name('user');
 Route::post('user/{username}/follow', 'UserController@follow')->name('follow');
 Route::post('user/{username}/unfollow', 'UserController@unfollow')->name('unfollow');
 
+Route::post('post/{id}/like', 'PostController@like')->name('like');
+Route::post('post/{id}/unlike', 'PostController@unlike')->name('unlike');
 
 Route::get('search', 'SearchController@index')->name('search');
 
