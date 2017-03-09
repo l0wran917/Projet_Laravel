@@ -15,6 +15,15 @@
                         </span>
                     @endif
                 </div>
+                <div class="row form-group{{ $errors->has('describe') ? ' has-error' : '' }}">
+                    <label for="describe">Petite bio</label>
+                    <input id="describe" type="text" class="form-control" name="describe" value="{{ old('describe') }}" required autofocus>
+                    @if ($errors->has('describe'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('describe') }}</strong>
+                        </span>
+                    @endif
+                </div>
                 <div class="row form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
                     <div class="col l6 s12">
                         <label for="lastname">Nom</label>
