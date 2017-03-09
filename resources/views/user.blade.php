@@ -35,7 +35,7 @@
                 @endif
                 
                 
-                <a href="#"><i class="material-icons grey-text">comment</i></a>
+                <a href="{{ route('post_reply', ['id' => $post->id]) }}"><i class="material-icons grey-text">comment</i></a>
                 <a href="#"><i class="material-icons grey-text">share</i></a>
             </div>
         </div>

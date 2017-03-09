@@ -22,7 +22,7 @@
         <div class="card white hoverable">
             <div class="card-content">
                 <a href="{{ url('user', ['username' => $post->user->pseudo]) }}"><span class="card-title">{{ ucfirst($post->user->pseudo) }}</span></a>
-                <em>Posté le  à </em>
+                <em>Posté le {{ $post->created_at->format('d/m/Y') }} à {{ $post->created_at->format('H:i') }}</em>
                 <p>{{ $post->content }}</p>
             </div>
             <div class="card-action">
@@ -55,7 +55,7 @@
                     {{ csrf_field() }}
                 </form>
             
-                <a href="#"><i class="material-icons grey-text">comment</i></a>
+                <a href="{{ route('post_reply', ['id' => $post->id]) }}"><i class="material-icons grey-text">comment</i></a>
                 <a href="#"><i class="material-icons grey-text">share</i></a>
             </div>
         </div>

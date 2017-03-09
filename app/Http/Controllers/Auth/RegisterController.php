@@ -69,7 +69,7 @@ class RegisterController extends Controller
             'lastname' => $data['lastname'],
             'firstname' => $data['firstname'],
             'pseudo' => $data['pseudo'],
-            'picture' => 'http://materializecss.com/images/sample-1.jpg',
+            'picture' => 'uploads/default.jpg',
             'describe' => $data['describe'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),

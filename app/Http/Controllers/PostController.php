@@ -35,4 +35,33 @@ class PostController extends Controller
         Session::flash('success', true);
         return back();
     }
+
+    public function reply($id){
+
+        $post = Post::find($id);
+
+        $responses = Post::where('id_post', $id)->get();
+
+        return view('post_reply',
+        [
+            'user' => Auth::user(),
+            'mainPost' => $post,
+            'responses' => $responses
+        ]);
+    }
+
+    public function replyNew(Request $request, $id){
+
+        $this->validate($request, [
+            'content' => 'required|max:141',
+        ]);
+
+        $post = new Post();
+        $post->content = $request->content;
+        $post->id_post = $id;
+        $post->id_user = Auth::id();
+        $post->save();
+
+        return back();
+    }
 }

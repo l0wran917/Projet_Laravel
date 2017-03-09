@@ -29,5 +29,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('post/{id}/like', 'PostController@like')->name('like');
     Route::post('post/{id}/unlike', 'PostController@unlike')->name('unlike');
 
+    Route::get('post/{id}/reply', 'PostController@reply')->name('post_reply');
+    Route::post('post/{id}/reply', 'PostController@replyNew');
+
     Route::get('search', 'SearchController@index')->name('search');
 });
