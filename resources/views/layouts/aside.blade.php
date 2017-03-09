@@ -5,7 +5,7 @@
                 <div class="card-image">
                     <img src="http://materializecss.com/images/yuna.jpg">
                     <span class="card-title">Pseudo</span>
-                    @if($isFollowed)
+                    @if(isset($isFollowed) && $isFollowed === true)
                         <a class="btn-floating halfway-fab waves-effect waves-light red"
                            href="{{ route('unfollow', ['username' => Route::input('username')]) }}"
                            onclick="
