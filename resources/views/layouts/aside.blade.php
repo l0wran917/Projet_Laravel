@@ -5,7 +5,12 @@
                 <div class="card-image">
                     <img src="{{ $user->picture }}">
                     <span class="card-title">{{ ucfirst($user->pseudo) }}</span>
-                    @if(isset($isFollowed) && $isFollowed === true)
+                    @if($user->id === Auth::id())
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"
+                           href="{{ route('user_edit') }}" >
+                            <i class="material-icons">delete_forever</i>
+                        </a>
+                    @elseif(isset($isFollowed) && $isFollowed === true)
                         <a class="btn-floating halfway-fab waves-effect waves-light red"
                            href="{{ route('unfollow', ['username' => Route::input('username')]) }}"
                            onclick="

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Follow;
 use App\Models\Like;
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -12,7 +13,6 @@ class UserController extends Controller
 {
     public function index($username)
     {
-
         $user = User::where(User::USERNAME_FIELD, $username)->first();
 
         $posts = $user->posts;
@@ -77,5 +77,30 @@ class UserController extends Controller
         $follow = Follow::where('id_follower', Auth::id())->where('id_followed', $user->id)->get();
 
         return count($follow) > 0;
+    }
+
+    public function editForm(){
+
+        return view('user_edit',
+            [
+                'user' => Auth::user()
+            ]);
+    }
+
+    public function edit(Request $request){
+
+        $this->validate($request, [
+            'pseudo' => 'required|max:255',
+            'lastname' => 'required|max:255',
+            'firstname' => 'required|max:255',
+            'describe' => 'max:2',
+            'picture' => 'max:255',
+            'link' => 'max:255',
+            'email' => 'required|email|max:255',
+            'password' => 'min:6',
+        ]);
+
+        dd($request->all());
+        die('edit');
     }
 }

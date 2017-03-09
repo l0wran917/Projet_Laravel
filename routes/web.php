@@ -23,6 +23,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('user/{username}/follow', 'UserController@follow')->name('follow');
     Route::post('user/{username}/unfollow', 'UserController@unfollow')->name('unfollow');
 
+    Route::get('user/profile/edit', 'UserController@editForm')->name('user_edit');
+    Route::post('user/profile/edit', 'UserController@edit');
+
     Route::post('post/{id}/like', 'PostController@like')->name('like');
     Route::post('post/{id}/unlike', 'PostController@unlike')->name('unlike');
 
