@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="card white">
         <div class="card-content">
@@ -7,7 +6,7 @@
                 <div class="row">
                     <div class="input-field col l11">
                         <textarea id="textarea1" class="materialize-textarea" data-length="141"></textarea>
-                        <label for="textarea1">Textarea</label>
+                        <label for="textarea1">Hello <i class="material-icons tiny">face</i></label>
                     </div>
                     <button class="btn col l1 waves-effect waves-light">
                         <i class="material-icons">send</i>

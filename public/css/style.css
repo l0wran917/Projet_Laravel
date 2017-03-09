@@ -44,5 +44,10 @@ em {
 }
 
 .card-image .card-title {
-    background-color: grey;
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.modal.bottom-sheet .card .card-title {
+    font-size: 14px;
+    padding: 5px;
 }
