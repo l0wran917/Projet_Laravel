@@ -26,9 +26,31 @@
                 <p>{{ $post->content }}</p>
             </div>
             <div class="card-action">
-                <a href="">
-                    <i class="material-icons grey-text">favorite_border</i>
-                </a>
+                @if(isset($likes[$post->id]))
+                    <a
+                            href="{{ route('unlike', ['id' => $post->id]) }}"
+                            onclick="
+                                    event.preventDefault();
+                                    document.getElementById('unlike-form-{{ $post->id }}').submit();" >
+                        <i class="material-icons red-text">favorite</i>
+                    </a>
+        
+                    <form id="unlike-form-{{ $post->id }}" action="{{ route('unlike', ['id' => $post->id]) }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                @else
+                    <a
+                            href="{{ route('like', ['id' => $post->id]) }}"
+                            onclick="
+                                    event.preventDefault();
+                                    document.getElementById('like-form-{{ $post->id }}').submit();" >
+                        <i class="material-icons grey-text">favorite_border</i>
+                    </a>
+        
+                    <form id="like-form-{{ $post->id }}" action="{{ route('like', ['id' => $post->id]) }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                @endif
                 <form id="like-form-2" action="route" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>

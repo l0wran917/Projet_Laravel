@@ -71,16 +71,20 @@
         <div class="modal-content">
             <h4>Wawaters</h4>
             <div class="row">
-                <div class="col l1">
-                    <div class="card">
-                        <div class="card-image">
-                            <a href="user/pseudo">
-                                <img src="http://materializecss.com/images/yuna.jpg">
-                                <span class="card-title">Pseudo</span>
-                            </a>
+                @if(isset($wawaters) && count($wawaters) > 0)
+                    @foreach($wawaters as $wawater)
+                        <div class="col l1">
+                            <div class="card">
+                                <div class="card-image">
+                                    <a href="{{ route('user', ['username' => $wawater->follower->pseudo]) }}">
+                                        <img src="{{ $wawater->follower->picture }}">
+                                        <span class="card-title">{{ ucfirst($wawater->follower->pseudo) }}</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
@@ -89,16 +93,20 @@
         <div class="modal-content">
             <h4>Wawated</h4>
             <div class="row">
-                <div class="col l1">
-                    <div class="card">
-                        <div class="card-image">
-                            <a href="user/pseudo">
-                                <img src="http://materializecss.com/images/yuna.jpg">
-                                <span class="card-title">Pseudo</span>
-                            </a>
+                @if(isset($wawateds) && count($wawateds) > 0)
+                    @foreach($wawateds as $wawated)
+                        <div class="col l1">
+                            <div class="card">
+                                <div class="card-image">
+                                    <a href="{{ route('user', ['username' => $wawated->followed->pseudo]) }}">
+                                        <img src="{{ $wawated->followed->picture }}">
+                                        <span class="card-title">{{ ucfirst($wawated->followed->pseudo) }}</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>

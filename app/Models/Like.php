@@ -39,4 +39,17 @@ class Like extends Eloquent
     public function post(){
         return $this->belongsTo(Post::class, 'post_id');
     }
+
+    public static function formatLikes($likes){
+
+        $likesFormatted = [];
+
+        foreach ($likes->toArray() as $like){
+            $idPost = $like['id_post'];
+
+            $likesFormatted[$idPost] = true;
+        }
+
+        return $likesFormatted;
+    }
 }
