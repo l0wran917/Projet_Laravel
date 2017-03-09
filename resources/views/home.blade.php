@@ -6,15 +6,6 @@
             <?php dump(\Illuminate\Support\Facades\Session::all()); ?>
         </div>
     </div>
-    <div class="row">
-        <form class="col offset-s3 s6">
-            <div class="input-field">
-                <input id="search" type="search" required>
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-            </div>
-        </form>
-    </div>
     
     <div class="row">
         <div class="col s3">
@@ -94,18 +85,4 @@
             </div>
         </div>
     </div>
-
-	<div class="card-content">
-		<div class="row">
-			<div class="col s12">
-				<a href="">
-					<div class="card-panel white hoverable">
-						<span class="black-text">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, ad alias asperiores, blanditiis commodi consequuntur doloremque
-						</span>
-					</div>
-				</a>
-			</div>
-		</div>
-	</div>
 @endsection

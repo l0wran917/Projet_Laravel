@@ -24,6 +24,8 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  */
 class Post extends Eloquent
 {
+    const CONTENT_FIELD = 'content';
+
 	protected $casts = [
 		'id_user' => 'int',
 		'id_post' => 'int'
