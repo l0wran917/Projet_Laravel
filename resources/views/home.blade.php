@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="row">
+        <div class="col s10 offset-s1">
+            <?php dump(\Illuminate\Support\Facades\Session::all()); ?>
+        </div>
+    </div>
+    <div class="row">
         <form class="col offset-s3 s6">
             <div class="input-field">
                 <input id="search" type="search" required>
@@ -29,10 +34,10 @@
         
         <div class="col s8 offset-s1 background-green">
             <div class="row">
-                <form class="col s10 offset-s1 margin-top">
+                <form class="col s10 offset-s1 margin-top" action="{{ route('new_post') }}" method="POST">
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                            <textarea name="content" id="textarea1" class="materialize-textarea"></textarea>
                             <label for="textarea1">Quoi de neuf ?</label>
                         </div>
                     </div>
@@ -43,6 +48,7 @@
                             </button>
                         </div>
                     </div>
+                    {{ csrf_field() }}
                 </form>
             </div>
             <hr>
