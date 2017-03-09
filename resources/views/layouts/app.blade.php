@@ -48,14 +48,28 @@
                                 
                                 @if($isFollowed)
                                     <a class="btn-floating halfway-fab waves-effect waves-light green"
-                                       href="{{ route('unfollow', ['username' => Route::input('username')]) }}">
+                                       href="{{ route('unfollow', ['username' => Route::input('username')]) }}"
+                                       onclick="
+                                        event.preventDefault();
+                                        document.getElementById('unfollow-form').submit();" >
                                         <i class="material-icons">add</i>
                                     </a>
+        
+                                    <form id="unfollow-form" action="{{ route('unfollow', ['username' => Route::input('username')]) }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
                                 @else
                                     <a class="btn-floating halfway-fab waves-effect waves-light red"
-                                       href="{{ route('follow', ['username' => Route::input('username')]) }}">
+                                       href="{{ route('follow', ['username' => Route::input('username')]) }}"
+                                       onclick="
+                                        event.preventDefault();
+                                        document.getElementById('follow-form').submit();" >
                                         <i class="material-icons">add</i>
                                     </a>
+        
+                                    <form id="follow-form" action="{{ route('follow', ['username' => Route::input('username')]) }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
                                 @endif
                             </div>
                             <div class="card-content">
