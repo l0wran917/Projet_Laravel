@@ -7,13 +7,10 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index($username){
+	public function index($username){
 
-        $user = User::where(User::USERNAME_FIELD, $username)->first();
-        $posts = $user->posts();
+		$user = User::where(User::USERNAME_FIELD, $username)->first();
 
-        
-
-        return view('user', ['posts' => $posts]);
-    }
+		return view('user', ['user' => $user]);
+	}
 }

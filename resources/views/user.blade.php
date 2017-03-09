@@ -1,48 +1,55 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
-        <form class="col offset-s3 s6">
-            <div class="input-field">
-                <input id="search" type="search" required>
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-            </div>
-        </form>
-    </div>
-    
-    <div class="row">
-        <div class="col s3">
-            <div class="row user-block">
-                <div class="col s10 offset-s1">
-                    <h3 class="center-align">Laurent</h3>
-                    <img src="http://materializecss.com/images/yuna.jpg" class="circle center-block" alt="">
-                </div>
-            </div>
-    
-            <div class="row background-pink fake-height">
-                <div class="col s10 offset-s1">
-                    <h3 class="center-align">Suggestions</h3>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col s8 offset-s1 background-green">
-            @foreach($posts as $post)
+    <div class="card white">
+        <div class="card-content">
+            <form>
                 <div class="row">
-                    <div class="col s2">
-                        <img src="http://materializecss.com/images/yuna.jpg" class="center-block" alt="">
+                    <div class="input-field col l11">
+                        <textarea id="textarea1" class="materialize-textarea" data-length="141"></textarea>
+                        <label for="textarea1">Textarea</label>
                     </div>
-                    <div class="col s10">
-                        <p>
-                            Fabio - 8 Mars à 23h35 :
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab adipisci animi consectetur dolorem eius enim est maiores nemo numquam officia pariatur, quam quis quo, quos recusandae reiciendis veniam voluptatem.
-                        </p>
-                    </div>
+                    <button class="btn col l1 waves-effect waves-light">
+                        <i class="material-icons">send</i>
+                    </button>
                 </div>
-            @endforeach
+            </form>
+        </div>
+    </div>
+    <div class="card white hoverable">
+        <div class="card-content">
+            <a href="user/pseudo"><span class="card-title">Pseudo</span></a>
+            <em>Posté le 13/13/2013 à 13h13</em>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, assumenda at illo, illum inventore laboriosam maxime quam quas inventore labor.</p>
+        </div>
+        <div class="card-action">
+            <a href="#"><i class="material-icons grey-text">favorite_border</i></a>
+            <a href="#"><i class="material-icons grey-text">comment</i></a>
+            <a href="#"><i class="material-icons grey-text">share</i></a>
+        </div>
+    </div>
+    <div class="card white hoverable">
+        <div class="card-content">
+            <a href="user/pseudo"><span class="card-title">Pseudo</span></a>
+            <em>Posté le 13/13/2013 à 13h13</em>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, assumenda at illo, illum inventore laboriosam maxime quam quas inventore labor.</p>
+        </div>
+        <div class="card-action">
+            <a href="#"><i class="material-icons grey-text">favorite_border</i></a>
+            <a href="#"><i class="material-icons grey-text">comment</i></a>
+            <a href="#"><i class="material-icons grey-text">share</i></a>
+        </div>
+    </div>
+    <div class="card white hoverable">
+        <div class="card-content">
+            <a href="user/pseudo"><span class="card-title">Pseudo</span></a>
+            <em>Posté le 13/13/2013 à 13h13</em>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, assumenda at illo, illum inventore laboriosam maxime quam quas inventore labor.</p>
+        </div>
+        <div class="card-action">
+            <a href="#"><i class="material-icons grey-text">favorite_border</i></a>
+            <a href="#"><i class="material-icons grey-text">comment</i></a>
+            <a href="#"><i class="material-icons grey-text">share</i></a>
         </div>
     </div>
 @endsection

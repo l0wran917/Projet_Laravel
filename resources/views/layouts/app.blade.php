@@ -36,9 +36,19 @@
         </div>
     </nav>
 
-    <div class="container">
-        @yield('content')
+    <div class="row">
+        <div class="col s12">
+            <div class="col l3 offset-l1">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab amet animi consectetur doloribus earum
+                    ex illum inventore molestiae, omnis quasi voluptates voluptatibus? Accusamus animi asperiores
+                    consequatur, quis quod ullam.</p>
+            </div>
+            <div class="col l7">
+                @yield('content')
+            </div>
+        </div>
     </div>
+
     
     <!-- Scripts -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
