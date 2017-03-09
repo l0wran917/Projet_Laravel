@@ -1,88 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
-        <div class="col s10 offset-s1">
-            <?php dump(\Illuminate\Support\Facades\Session::all()); ?>
+    <div class="card white">
+        <div class="card-content">
+            <form>
+                <div class="row">
+                    <div class="input-field col l11">
+                        <textarea id="textarea1" class="materialize-textarea" data-length="141"></textarea>
+                        <label for="textarea1">Hello <i class="material-icons tiny">face</i></label>
+                    </div>
+                    <button class="btn col l1 waves-effect waves-light">
+                        <i class="material-icons">send</i>
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
-    
-    <div class="row">
-        <div class="col s3">
-            <div class="row user-block">
-                <div class="col s10 offset-s1">
-                    <h3 class="center-align">Laurent</h3>
-                    <img src="http://materializecss.com/images/yuna.jpg" class="circle center-block" alt="">
-                </div>
-            </div>
-    
-            <div class="row background-pink fake-height">
-                <div class="col s10 offset-s1">
-                    <h3 class="center-align">Suggestions</h3>
-                </div>
-            </div>
+
+    <div class="card white hoverable">
+        <div class="card-content">
+            <a href="user/pseudo"><span class="card-title">Pseudo</span></a>
+            <em>Posté le  à </em>
+            <p>WALA</p>
         </div>
-        
-        <div class="col s8 offset-s1 background-green">
-            <div class="row">
-                <form class="col s10 offset-s1 margin-top" action="{{ route('new_post') }}" method="POST">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="content" id="textarea1" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Quoi de neuf ?</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s3 offset-s9">
-                            <button class="btn waves-effect waves-light" type="submit">Submit
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </div>
+        <div class="card-action">
+                <a href="">
+                    <i class="material-icons grey-text">favorite_border</i>
+                </a>
+                <form id="like-form-2" action="route" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
-            </div>
-            <hr>
-            <!-- Posts -->
-            <div class="row">
-                <div class="col s2">
-                    <img src="http://materializecss.com/images/yuna.jpg" class="center-block" alt="">
-                </div>
-                <div class="col s10">
-                    <p>
-                        Fabio - 8 Mars à 23h35 :
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab adipisci animi consectetur dolorem eius enim est maiores nemo numquam officia pariatur, quam quis quo, quos recusandae reiciendis veniam voluptatem.
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s2">
-                    <img src="http://materializecss.com/images/yuna.jpg" class="center-block" alt="">
-                </div>
-                <div class="col s10">
-                    <p>
-                        Fabio - 8 Mars à 23h35 :
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab adipisci animi consectetur dolorem eius enim est maiores nemo numquam officia pariatur, quam quis quo, quos recusandae reiciendis veniam voluptatem.
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s2">
-                    <img src="http://materializecss.com/images/yuna.jpg" class="center-block" alt="">
-                </div>
-                <div class="col s10">
-                    <p>
-                        Fabio - 8 Mars à 23h35 :
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab adipisci animi consectetur dolorem eius enim est maiores nemo numquam officia pariatur, quam quis quo, quos recusandae reiciendis veniam voluptatem.
-                    </p>
-                </div>
-            </div>
+
+            <a href="#"><i class="material-icons grey-text">comment</i></a>
+            <a href="#"><i class="material-icons grey-text">share</i></a>
         </div>
     </div>
 @endsection

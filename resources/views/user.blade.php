@@ -1,21 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    <div class="card white">
-        <div class="card-content">
-            <form>
-                <div class="row">
-                    <div class="input-field col l11">
-                        <textarea id="textarea1" class="materialize-textarea" data-length="141"></textarea>
-                        <label for="textarea1">Hello <i class="material-icons tiny">face</i></label>
-                    </div>
-                    <button class="btn col l1 waves-effect waves-light">
-                        <i class="material-icons">send</i>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     @foreach($posts as $post)
         <div class="card white hoverable">
             <div class="card-content">

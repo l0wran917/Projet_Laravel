@@ -24,16 +24,26 @@
 </head>
 <body>
     @include('layouts.nav')
-    <div class="row">
-        <div class="col s12">
-            <div class="col l3 offset-l1">
-                @include('layouts.aside')
-            </div>
-            <div class="col l7">
-                @yield('content')
+    @if(Auth::id())
+        <div class="row">
+            <div class="col s12">
+                <div class="col l3 offset-l1">
+                    @include('layouts.aside')
+                </div>
+                <div class="col l7">
+                    @yield('content')
+                </div>
             </div>
         </div>
-    </div>
+    @else
+        <div class="row">
+            <div class="col s12">
+                <div class="col l8 offset-l2">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
+    @endif
     <!-- Scripts -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="{{ asset('js/materialize.min.js') }}"></script>
