@@ -3,14 +3,6 @@
     padding-bottom: 24px;
 }
 
-label{
-    color: #fff !important;
-}
-
-textarea{
-    border-color: #fff !important;
-}
-
 .margin-top{
     margin-top: 12px;
 }
@@ -41,4 +33,21 @@ body{
 
 .content-wrap {
     background-color: #fff;
+}
+
+form div.row button {
+    top: 25px;
+}
+
+em {
+    text-decoration: underline;
+}
+
+.card-image .card-title {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.modal.bottom-sheet .card .card-title {
+    font-size: 14px;
+    padding: 5px;
 }

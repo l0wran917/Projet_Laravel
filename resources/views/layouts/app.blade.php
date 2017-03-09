@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    
+
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -23,35 +23,22 @@
     </script>
 </head>
 <body>
-    <nav class="light-blue lighten-1" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="{{ url('home') }}" class="brand-logo">Logo</a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="#">Navbar Link</a></li>
-            </ul>
-            
-            <ul id="nav-mobile" class="side-nav">
-                <li><a href="#">Navbar Link</a></li>
-            </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    @include('layouts.nav')
+    <div class="row">
+        <div class="col s12">
+            <div class="col l3 offset-l1">
+                @include('layouts.aside')
+            </div>
+            <div class="col l7">
+                @yield('content')
+            </div>
         </div>
-    </nav>
-
-    <div class="container">
-        <div class="row">
-            <form class="col offset-s3 s6" action="{{ route('search') }}" method="get">
-                <div class="input-field">
-                    <input name="query" id="search" type="search" required>
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                </div>
-            </form>
-        </div>
-        @yield('content')
     </div>
-    
+
     <!-- Scripts -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="{{ asset('js/materialize.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>
