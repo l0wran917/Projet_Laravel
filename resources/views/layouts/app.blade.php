@@ -37,6 +37,15 @@
     </nav>
 
     <div class="container">
+        <div class="row">
+            <form class="col offset-s3 s6" action="{{ route('search') }}" method="get">
+                <div class="input-field">
+                    <input name="query" id="search" type="search" required>
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
         @yield('content')
     </div>
     
