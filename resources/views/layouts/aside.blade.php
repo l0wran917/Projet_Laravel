@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-image">
                     <img src="http://materializecss.com/images/yuna.jpg">
-                    <span class="card-title">Pseudo</span>
+                    <span class="card-title">{{ ucfirst($user->pseudo) }}</span>
                     @if(isset($isFollowed) && $isFollowed === true)
                         <a class="btn-floating halfway-fab waves-effect waves-light red"
                            href="{{ route('unfollow', ['username' => Route::input('username')]) }}"
@@ -32,7 +32,7 @@
                     @endif
                 </div>
                 <div class="card-content">
-                    <p>Hey My Name is WALA je fais des photos.</p>
+                    <p>{{ $user->content }}</p>
                 </div>
                 <div class="card-action center">
                     <a href="#message" class="modal-trigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="Envoyer un message"><i class="material-icons grey-text">message</i></a>
@@ -45,9 +45,9 @@
         <div class="col s12">
             <div class="card">
                 <div class="card-content">
-                    <p><a href="#wawats" class="modal-trigger">Wawats : 13</a><br>
-                        <a href="#wawaters" class="modal-trigger">Wawaters : 20</a><br>
-                        <a href="#wawated" class="modal-trigger">Wawated : 80</a>
+                    <p><a href="#wawats" class="modal-trigger">Wawats : {{ $user->posts->count() }}</a><br>
+                        <a href="#wawaters" class="modal-trigger">Wawaters : {{ $user->follower->count() }}</a><br>
+                        <a href="#wawated" class="modal-trigger">Wawated : {{ $user->followed->count() }}</a>
                     </p>
                 </div>
             </div>
