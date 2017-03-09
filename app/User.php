@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Models\Follow;
+use App\Models\Like;
 use App\Models\Post;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,10 +43,14 @@ class User extends Authenticatable
     }
 
     public function follower(){
-        return $this->hasMany(User::class, 'id_follower');
+        return $this->hasMany(Follow::class, 'id_follower');
     }
 
     public function followed(){
-        return $this->hasMany(User::class, 'id_followed');
+        return $this->hasMany(Follow::class, 'id_followed');
+    }
+
+    public function likes(){
+        return $this->hasMany(Like::class, 'id_user');
     }
 }

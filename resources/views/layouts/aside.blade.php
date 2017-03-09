@@ -5,7 +5,31 @@
                 <div class="card-image">
                     <img src="http://materializecss.com/images/yuna.jpg">
                     <span class="card-title">Pseudo</span>
-                    <a class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">person_add</i></a>
+                    @if($isFollowed)
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"
+                           href="{{ route('unfollow', ['username' => Route::input('username')]) }}"
+                           onclick="
+                                        event.preventDefault();
+                                        document.getElementById('unfollow-form').submit();" >
+                            <i class="material-icons">delete_forever</i>
+                        </a>
+        
+                        <form id="unfollow-form" action="{{ route('unfollow', ['username' => Route::input('username')]) }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    @else
+                        <a class="btn-floating halfway-fab waves-effect waves-light teal"
+                           href="{{ route('follow', ['username' => Route::input('username')]) }}"
+                           onclick="
+                                        event.preventDefault();
+                                        document.getElementById('follow-form').submit();" >
+                            <i class="material-icons">person_add</i>
+                        </a>
+        
+                        <form id="follow-form" action="{{ route('follow', ['username' => Route::input('username')]) }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    @endif
                 </div>
                 <div class="card-content">
                     <p>Hey My Name is WALA je fais des photos.</p>
