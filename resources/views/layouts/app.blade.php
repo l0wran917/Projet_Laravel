@@ -79,20 +79,15 @@
                 </div>
             </div>
         </nav>
-        <div class="row">
-            <div class="col s3">
-                test
-            </div>
-            <section class="row">
-                <article class="col s9">
-                    <div class="offset-l2 col l8 s12">
-                        <div class="card">
-                            @yield('content')
-                        </div>
+        <section class="row">
+            <article class="col s12">
+                <div class="offset-l2 col l8 s12">
+                    <div class="card">
+                        @yield('content')
                     </div>
-                </article>
-            </section>
-        </div>
+                </div>
+            </article>
+        </section>
     </div>
 
     <!-- Scripts -->
