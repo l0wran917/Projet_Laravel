@@ -12,8 +12,6 @@ class UserController extends Controller
         $user = User::where(User::USERNAME_FIELD, $username)->first();
         $posts = $user->posts();
 
-        
-
         return view('user', ['posts' => $posts]);
     }
 }
