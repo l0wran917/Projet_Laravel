@@ -48,10 +48,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'pseudo' => 'required|max:255|unique:users',
             'lastname' => 'required|max:255',
             'firstname' => 'required|max:255',
             'describe' => 'max:255',
-            'picture' => 'max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -69,6 +69,7 @@ class RegisterController extends Controller
             'lastname' => $data['lastname'],
             'firstname' => $data['firstname'],
             'pseudo' => $data['pseudo'],
+            'picture' => 'http://materializecss.com/images/sample-1.jpg',
             'describe' => $data['describe'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
