@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+	<div class="card-content">
+		<div class="row">
+			<div class="col s12">
+				<a href="">
+					<div class="card-panel white hoverable">
+						<span class="black-text">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, ad alias asperiores, blanditiis commodi consequuntur doloremque
+						</span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
 @endsection

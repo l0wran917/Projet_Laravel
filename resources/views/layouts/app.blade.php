@@ -11,7 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -21,7 +23,7 @@
     </script>
 </head>
 <body>
-    <div id="app">
+    <article id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -77,11 +79,24 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
+        <div class="row">
+            <div class="col s3">
+                test
+            </div>
+            <section class="row">
+                <article class="col s9">
+                    <div class="offset-l2 col l8 s12">
+                        <div class="card">
+                            @yield('content')
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </div>
     </div>
 
     <!-- Scripts -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="{{ asset('js/materialize.min.js') }}"></script>
 </body>
 </html>

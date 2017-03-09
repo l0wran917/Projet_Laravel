@@ -31,4 +31,12 @@ class Follow extends Eloquent
 		'id_follower',
 		'id_followed'
 	];
+
+    public function followed(){
+        return $this->belongsTo(User::class, 'id_followed');
+    }
+
+    public function follower(){
+        return $this->belongsTo(User::class, 'id_follower');
+    }
 }
