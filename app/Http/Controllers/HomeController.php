@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,9 +27,13 @@ class HomeController extends Controller
     {
         $posts = $this->getFollowedPosts();
 
+        $likes = Auth::user()->likes;
+        $likes = Like::formatLikes($likes);
+
         return view('home', [
             'user' => Auth::user(),
-            'posts' => $posts
+            'posts' => $posts,
+            'likes' => $likes
         ]);
     }
 

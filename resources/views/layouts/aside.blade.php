@@ -3,7 +3,7 @@
         <div class="col s12">
             <div class="card">
                 <div class="card-image">
-                    <img src="http://materializecss.com/images/yuna.jpg">
+                    <img src="{{ $user->picture }}">
                     <span class="card-title">{{ ucfirst($user->pseudo) }}</span>
                     @if(isset($isFollowed) && $isFollowed === true)
                         <a class="btn-floating halfway-fab waves-effect waves-light red"
@@ -32,12 +32,12 @@
                     @endif
                 </div>
                 <div class="card-content">
-                    <p>{{ $user->content }}</p>
+                    <p>{{ $user->describe }}</p>
                 </div>
                 <div class="card-action center">
                     <a href="#message" class="modal-trigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="Envoyer un message"><i class="material-icons grey-text">message</i></a>
                     <a href="#" class=" tooltipped" data-position="bottom" data-delay="50" data-tooltip="Cibler avec ma bubble"><i class="material-icons grey-text">bubble_chart</i></a>
-                    <a href="#" class=" tooltipped" data-position="bottom" data-delay="50" data-tooltip="Lien vers le site web" target="_blank"><i class="material-icons grey-text">link</i></a>
+                    <a href="{{ $user->link }}" class=" tooltipped" data-position="bottom" data-delay="50" data-tooltip="Lien vers le site web" target="_blank"><i class="material-icons grey-text">link</i></a>
                 </div>
             </div>
         </div>
@@ -71,16 +71,20 @@
         <div class="modal-content">
             <h4>Wawaters</h4>
             <div class="row">
-                <div class="col l1">
-                    <div class="card">
-                        <div class="card-image">
-                            <a href="user/pseudo">
-                                <img src="http://materializecss.com/images/yuna.jpg">
-                                <span class="card-title">Pseudo</span>
-                            </a>
+                @if(isset($wawaters) && count($wawaters) > 0)
+                    @foreach($wawaters as $wawater)
+                        <div class="col l1">
+                            <div class="card">
+                                <div class="card-image">
+                                    <a href="{{ route('user', ['username' => $wawater->follower->pseudo]) }}">
+                                        <img src="{{ $wawater->follower->picture }}">
+                                        <span class="card-title">{{ ucfirst($wawater->follower->pseudo) }}</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
@@ -89,16 +93,20 @@
         <div class="modal-content">
             <h4>Wawated</h4>
             <div class="row">
-                <div class="col l1">
-                    <div class="card">
-                        <div class="card-image">
-                            <a href="user/pseudo">
-                                <img src="http://materializecss.com/images/yuna.jpg">
-                                <span class="card-title">Pseudo</span>
-                            </a>
+                @if(isset($wawateds) && count($wawateds) > 0)
+                    @foreach($wawateds as $wawated)
+                        <div class="col l1">
+                            <div class="card">
+                                <div class="card-image">
+                                    <a href="{{ route('user', ['username' => $wawated->followed->pseudo]) }}">
+                                        <img src="{{ $wawated->followed->picture }}">
+                                        <span class="card-title">{{ ucfirst($wawated->followed->pseudo) }}</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>

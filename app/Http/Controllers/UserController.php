@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Follow;
+use App\Models\Like;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -15,15 +16,20 @@ class UserController extends Controller
         $user = User::where(User::USERNAME_FIELD, $username)->first();
 
         $posts = $user->posts;
-        $likes = Auth::user()->likes;
 
-        $likes = $this->formatLikes($likes);
+        $likes = Auth::user()->likes;
+        $likes = Like::formatLikes($likes);
+
+        $wawaters = $user->follower;
+        $wawateds = $user->followed;
 
         return view('user', [
             'user' => $user,
             'isFollowed' => $this->isFollowed($username),
             'posts' => $posts,
-            'likes' => $likes
+            'likes' => $likes,
+            'wawaters' => $wawaters,
+            'wawateds' => $wawateds
         ]);
     }
 
@@ -71,18 +77,5 @@ class UserController extends Controller
         $follow = Follow::where('id_follower', Auth::id())->where('id_followed', $user->id)->get();
 
         return count($follow) > 0;
-    }
-
-    private function formatLikes($likes){
-
-        $likesFormatted = [];
-
-        foreach ($likes->toArray() as $like){
-            $idPost = $like['id_post'];
-
-            $likesFormatted[$idPost] = true;
-        }
-
-        return $likesFormatted;
     }
 }

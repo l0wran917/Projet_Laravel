@@ -19,8 +19,8 @@
 
                             @if(isset($results['posts']))
                                 <h2>Posts</h2>
-                                @foreach($results['posts'] as $user)
-                                    {{ $user->content }}
+                                @foreach($results['posts'] as $post)
+                                    {{ $post->content }}
                                 @endforeach
                             @endif
                         @endforelse

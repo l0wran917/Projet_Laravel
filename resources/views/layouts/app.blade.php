@@ -24,7 +24,7 @@
 </head>
 <body>
     @include('layouts.nav')
-    @if(Auth::id())
+    @if(Auth::id() && Route::currentRouteName() !== 'search')
         <div class="row">
             <div class="col s12">
                 <div class="col l3 offset-l1">
