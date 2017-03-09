@@ -37,8 +37,6 @@ class HomeController extends Controller
         $post->id_user = Auth::id();
         $post->save();
 
-        Session::flash('alert-success', 'GG WP');
-
         return redirect('home');
     }
 }
