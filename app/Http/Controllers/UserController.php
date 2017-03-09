@@ -93,14 +93,33 @@ class UserController extends Controller
             'pseudo' => 'required|max:255',
             'lastname' => 'required|max:255',
             'firstname' => 'required|max:255',
-            'describe' => 'max:2',
-            'picture' => 'max:255',
+            'describe' => 'max:255',
             'link' => 'max:255',
             'email' => 'required|email|max:255',
-            'password' => 'min:6',
         ]);
 
-        dd($request->all());
-        die('edit');
+
+        $file = $request->file('picture');
+        $extension = $file->getClientOriginalExtension();
+        $filename = uniqid().'.'.$extension;
+        $file->move('uploads', $filename);
+
+        $data = $request->all();
+        $data['picture'] = 'uploads/' . $filename;
+
+        if(!isset($data['password'])){
+            $data['password'] = Auth::user()->getAuthPassword();
+        }
+
+        if(!isset($data['picture'])){
+            $data['picture'] = Auth::user()->picture;
+        }
+        unset($data['_token']);
+
+        $user = Auth::user();
+        $user->forceFill($data);
+        $user->save();
+
+        return back();
     }
 }

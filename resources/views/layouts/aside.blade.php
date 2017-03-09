@@ -3,7 +3,7 @@
         <div class="col s12">
             <div class="card">
                 <div class="card-image">
-                    <img src="{{ $user->picture }}">
+                    <img src="{{ asset($user->picture) }}">
                     <span class="card-title">{{ ucfirst($user->pseudo) }}</span>
                     @if($user->id === Auth::id())
                         <a class="btn-floating halfway-fab waves-effect waves-light red"

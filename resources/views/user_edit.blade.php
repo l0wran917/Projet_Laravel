@@ -1,8 +1,17 @@
 @extends('layouts.app')
 @section('content')
     <div class="card white">
-        {!! Form::open(['file' => true]) !!}
+        {!! Form::open(['files' => true]) !!}
         <div class="card-content">
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             {!! Form::model(Auth::user()) !!}
         
             {!! Form::label('pseudo', 'Username') !!}
@@ -22,10 +31,6 @@
     
             {!! Form::label('describe', 'Biographie') !!}
             {!! Form::text('describe') !!}
-            {!! dump(Session::get('errors'))  !!}
-    
-            {!! Form::label('password', 'Nouveau mot de passe') !!}
-            {!! Form::password('password') !!}
             
             {!! Form::label('picture', 'Nouvelle photo : ') !!}
             {!! Form::file('picture') !!}

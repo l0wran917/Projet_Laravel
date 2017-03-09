@@ -16,7 +16,7 @@
                         {{ csrf_field() }}
                     </form>
                 </li>
-                <li><a href="{{url('user/pseudo')}}"><i class="material-icons">settings</i></a></li>
+                <li><a href="{{route('user_edit')}}"><i class="material-icons">settings</i></a></li>
             @endif
         </ul>
 
