@@ -21,7 +21,7 @@
     @foreach($posts as $post)
         <div class="card white hoverable">
             <div class="card-content">
-                <a href="user/pseudo"><span class="card-title">{{ ucfirst($post->user->pseudo) }}</span></a>
+                <a href="{{ url('user', ['username' => $post->user->pseudo]) }}"><span class="card-title">{{ ucfirst($post->user->pseudo) }}</span></a>
                 <em>Posté le  à </em>
                 <p>{{ $post->content }}</p>
             </div>
