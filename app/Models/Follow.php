@@ -7,6 +7,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
@@ -31,4 +32,12 @@ class Follow extends Eloquent
 		'id_follower',
 		'id_followed'
 	];
+
+    public function followed(){
+        return $this->belongsTo(User::class, 'id_followed');
+    }
+
+    public function follower(){
+        return $this->belongsTo(User::class, 'id_follower');
+    }
 }

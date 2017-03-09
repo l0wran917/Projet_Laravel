@@ -31,6 +31,14 @@ textarea{
     height: 300px;
 }
 
-img{
+img {
     max-width: 100%;
+}
+
+body{
+    background-color: #fcfcfc;
+}
+
+.content-wrap {
+    background-color: #fff;
 }

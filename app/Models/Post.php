@@ -7,6 +7,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
@@ -33,4 +34,12 @@ class Post extends Eloquent
 		'id_user',
 		'id_post'
 	];
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function post(){
+        return $this->belongsTo(Post::class, 'post_id');
+    }
 }
