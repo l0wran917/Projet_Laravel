@@ -30,14 +30,12 @@ class HomeController extends Controller
         $likes = Auth::user()->likes;
         $likes = Like::formatLikes($likes);
 
-        $wawaters = Auth::user()->follower;
         $wawateds = Auth::user()->followed;
 
         return view('home', [
             'user' => Auth::user(),
             'posts' => $posts,
             'likes' => $likes,
-            'wawaters' => $wawaters,
             'wawateds' => $wawateds
         ]);
     }

@@ -76,13 +76,13 @@
         <div class="modal-content">
             <h4>Wawaters</h4>
             <div class="row">
-                @if(isset($wawaters) && count($wawaters) > 0)
-                    @foreach($wawaters as $wawater)
+                @if(isset($user->follower) && count($user->follower) > 0)
+                    @foreach($user->follower as $wawater)
                         <div class="col l1">
                             <div class="card">
                                 <div class="card-image">
                                     <a href="{{ route('user', ['username' => $wawater->follower->pseudo]) }}">
-                                        <img src="{{ $wawater->follower->picture }}">
+                                        <img src="{{ asset($wawater->follower->picture) }}">
                                         <span class="card-title">{{ ucfirst($wawater->follower->pseudo) }}</span>
                                     </a>
                                 </div>
@@ -98,13 +98,13 @@
         <div class="modal-content">
             <h4>Wawated</h4>
             <div class="row">
-                @if(isset($wawateds) && count($wawateds) > 0)
-                    @foreach($wawateds as $wawated)
+                @if(isset($user->followed) && count($user->followed) > 0)
+                    @foreach($user->followed as $wawated)
                         <div class="col l1">
                             <div class="card">
                                 <div class="card-image">
                                     <a href="{{ route('user', ['username' => $wawated->followed->pseudo]) }}">
-                                        <img src="{{ $wawated->followed->picture }}">
+                                        <img src="{{ asset($wawated->followed->picture) }}">
                                         <span class="card-title">{{ ucfirst($wawated->followed->pseudo) }}</span>
                                     </a>
                                 </div>
