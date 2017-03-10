@@ -12,16 +12,20 @@
                         @else
                             @if(isset($results['users']))
                                 <h2>Users</h2>
-                                @foreach($results['users'] as $user)
-                                    {{ $user->pseudo }}
-                                @endforeach
+                                <ul>
+                                    @foreach($results['users'] as $user)
+                                        <li><a href="{{ route('user', ['username' => $user->pseudo]) }}">{{ $user->pseudo }}</a>
+                                    @endforeach
+                                </ul>
                             @endif
 
                             @if(isset($results['posts']))
                                 <h2>Posts</h2>
-                                @foreach($results['posts'] as $post)
-                                    {{ $post->content }}
-                                @endforeach
+                                <ul>
+                                    @foreach($results['posts'] as $post)
+                                        <li><a href="{{ route('post_reply', ['id' => $post->id]) }}">{{ $post->content }}</a>
+                                    @endforeach
+                                </ul>
                             @endif
                         @endforelse
                     </p>
