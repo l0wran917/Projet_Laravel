@@ -38,3 +38,27 @@ $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
         //'id_user' => $faker->randomElement($users),
     ];
 });
+
+$factory->define(App\Models\Like::class, function (Faker\Generator $faker) {
+    //$users = App\User::select('id')->get();
+    //$posts = App\Post::select('id')->get();
+    /**
+     * TODO : get list of ids to display in $users
+     */
+    return [
+        //'id_post' => $faker->randomElement($posts),
+        //'id_user' => $faker->randomElement($users),
+    ];
+});
+
+$factory->define(App\Models\Follow::class, function (Faker\Generator $faker) {
+    //$follower = App\User::select('id')->get();
+    //$followed = App\User::select('id')->get();
+    /**
+     * TODO : get list of ids to display in $users
+     */
+    return [
+        //'id_follower' => $faker->randomElement($follower),
+        //'id_followed' => $faker->randomElement($followed),
+    ];
+});
