@@ -8,7 +8,7 @@
                     @if($user->id === Auth::id())
                         <a class="btn-floating halfway-fab waves-effect waves-light red"
                            href="{{ route('user_edit') }}" >
-                            <i class="material-icons">delete_forever</i>
+                            <i class="material-icons teal">mode_edit</i>
                         </a>
                     @elseif(isset($isFollowed) && $isFollowed === true)
                         <a class="btn-floating halfway-fab waves-effect waves-light red"
