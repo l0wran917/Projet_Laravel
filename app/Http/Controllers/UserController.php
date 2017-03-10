@@ -98,22 +98,23 @@ class UserController extends Controller
             'email' => 'required|email|max:255',
         ]);
 
-
-        $file = $request->file('picture');
-        $extension = $file->getClientOriginalExtension();
-        $filename = uniqid().'.'.$extension;
-        $file->move('uploads', $filename);
-
         $data = $request->all();
-        $data['picture'] = 'uploads/' . $filename;
+
+        if ($request->file('picture')) {
+            $file = $request->file('picture');
+            $extension = $file->getClientOriginalExtension();
+            $filename = uniqid().'.'.$extension;
+            $file->move('uploads', $filename);
+
+            $data['picture'] = 'uploads/' . $filename;
+        } else {
+            $data['picture'] = Auth::user()->picture;
+        }
 
         if(!isset($data['password'])){
             $data['password'] = Auth::user()->getAuthPassword();
         }
 
-        if(!isset($data['picture'])){
-            $data['picture'] = Auth::user()->picture;
-        }
         unset($data['_token']);
 
         $user = Auth::user();
