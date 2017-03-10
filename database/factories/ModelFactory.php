@@ -29,36 +29,37 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
-    //$users = App\User::select('id')->get();
+    $users = App\User::select('id')->get()->toArray();
     /**
      * TODO : get list of ids to display in $users
      */
     return [
         'content' => $faker->realText($faker->numberBetween(80,141)),
-        //'id_user' => $faker->randomElement($users),
+        'id_user' => $faker->randomElement($users)['id'],
     ];
 });
 
 $factory->define(App\Models\Like::class, function (Faker\Generator $faker) {
-    //$users = App\User::select('id')->get();
-    //$posts = App\Post::select('id')->get();
+    $users = App\User::select('id')->get()->toArray();
+    $posts = App\Models\Post::select('id')->get()->toArray();
+
     /**
      * TODO : get list of ids to display in $users
      */
     return [
-        //'id_post' => $faker->randomElement($posts),
-        //'id_user' => $faker->randomElement($users),
+        'id_post' => $faker->randomElement($posts)['id'],
+        'id_user' => $faker->randomElement($users)['id'],
     ];
 });
 
 $factory->define(App\Models\Follow::class, function (Faker\Generator $faker) {
-    //$follower = App\User::select('id')->get();
-    //$followed = App\User::select('id')->get();
+    $follower = App\User::select('id')->get()->toArray();
+    $followed = App\User::select('id')->get()->toArray();
     /**
      * TODO : get list of ids to display in $users
      */
     return [
-        //'id_follower' => $faker->randomElement($follower),
-        //'id_followed' => $faker->randomElement($followed),
+        'id_follower' => $faker->randomElement($follower)['id'],
+        'id_followed' => $faker->randomElement($followed)['id'],
     ];
 });
