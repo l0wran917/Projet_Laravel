@@ -16,9 +16,25 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
+        'pseudo' => $faker->company,
+        'picture' => $faker->imageUrl($width = 600, $height = 600),
+        'lastname' => $faker->lastName,
+        'firstname' => $faker->firstName,
+        'link' => $faker->url,
+        'describe' => $faker->realText($faker->numberBetween(100,150)),
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
+    //$users = App\User::select('id')->get();
+    /**
+     * TODO : get list of ids to display in $users
+     */
+    return [
+        'content' => $faker->realText($faker->numberBetween(80,141)),
+        //'id_user' => $faker->randomElement($users),
     ];
 });
